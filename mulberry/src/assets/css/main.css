@@ -12,22 +12,25 @@
 --------------------------------------------------------------*/
 /* Fonts */
 :root {
-  --font-default: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-primary: "Montserrat", sans-serif;
-  --font-secondary: "Raleway", sans-serif;
+  --font-default: "Avenir", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-primary: "Avenir", sans-serif;
+  --font-secondary: "Avenir", sans-serif;
 }
 
 /* Colors */
 :root {
-  --color-default: #EEF0F2;
-  --color-primary: #B4D0E7;
-  --color-secondary: #706D6D;
-  --color-tertiary: #FAB162;
+  --color-default: #f1f1f1;
+  --color-primary: #f1f1f1;
+  --color-secondary: #444444;
+  --color-tertiary: rgb(153, 204, 0);
   --color-navy:#29486a;
-  --color-default-rgb: rgb(238,240,242);
-  --color-primary-rgb: rgb(180,208,231);
-  --color-secondary-rgb: rgb(112,109,109);
-  --color-tertiary-rgb: rgb(250,177,98);
+  --color-blue: #66cccc;
+  --color-green: #99cc00;
+  --color-lightgray: #f1f1f1;
+  --color-default-rgb: rgb(241,241,241);
+  --color-primary-rgb: rgb(241,241,241);
+  --color-secondary-rgb: rgb(102,102,102);
+  --color-tertiary-rgb: rgb(153,204,98);
   --color-navy-rgb: rgb(41,72,106);
 }
 
@@ -69,7 +72,7 @@ h6 {
 --------------------------------------------------------------*/
 section {
   overflow: hidden;
-  padding: 80px 0;
+  padding: 80px;
 }
 
 .section-header {
@@ -91,7 +94,7 @@ section {
   display: block;
   width: 60px;
   height: 2px;
-  background: var(--color-primary);
+  background: rgba(10, 10, 10, 0.75);
   left: 0;
   right: 0;
   bottom: 0;
@@ -116,7 +119,7 @@ section {
 
 .breadcrumbs:before {
   content: "";
-  background-color: rgba(27, 47, 69, 0.7);
+  background-color: rgba(24, 23, 23, 0.835);
   position: absolute;
   inset: 0;
 }
@@ -124,8 +127,8 @@ section {
 .breadcrumbs h2 {
   font-size: 56px;
   font-weight: 500;
-  color: #fff;
-  font-family: var(--font-secondary);
+  color: #666666;
+  font-family: var(--font-default);
 }
 
 .breadcrumbs ol {
@@ -136,11 +139,11 @@ section {
   margin: 0;
   font-size: 16px;
   font-weight: 600;
-  color: var(--color-primary);
+  color: var(--color-secondary);
 }
 
 .breadcrumbs ol a {
-  color: rgba(255, 255, 255, 0.8);
+  color: #99CC00;
   transition: 0.3s;
 }
 
@@ -155,7 +158,7 @@ section {
 .breadcrumbs ol li+li::before {
   display: inline-block;
   padding-right: 10px;
-  color: #fff;
+  color: #666666;
   content: "/";
 }
 
@@ -243,6 +246,48 @@ section {
   transition: all 0.5s;
   z-index: 997;
   padding: 24px 0;
+  opacity : 1.0;
+}
+
+.header.sticked{
+  left: 0; ;
+  padding: 12px 0;
+  background: var(--color-lightgray);
+  opacity : 1.0;
+  .navbar a,
+  .navbar a:focus {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0 15px 30px;
+    font-family: var(--font-default);
+    font-size: 20px;
+    font-weight: 300;
+    color:rgb(10, 10, 10);
+    white-space: nowrap;
+    background-color: var(--color-gray);
+    transition: 0.3s;
+  }
+
+  .navbar a:hover,
+  .navbar li:hover>a {
+    color: var(--color-blue)
+  }
+  .navbar .active,
+  .navbar .active:focus {
+    color: var(--color-green)
+  }
+
+  .navbar a i,
+  .navbar a:focus i {
+    font-size: 12px;
+    line-height: 0;
+    margin-left: 5px;
+    color: var(--color-green);
+    background-color: var(--color-gray);
+  }
+
+ 
 }
 
 @media (max-width: 1200px) {
@@ -251,14 +296,48 @@ section {
   }
 }
 
-.header.sticked {
-  background: var(--color-primary) ;
+/*
+.header.sticked1 {
+  left: 0; ;
   padding: 12px 0;
-}
+  background-color: var(--color-gray);
+  .navbar a,
+  .navbar a:focus {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0 15px 30px;
+    font-family: var(--font-default);
+    font-size: 20px;
+    font-weight: 300;
+    color:rgb(10, 10, 10);
+    white-space: nowrap;
+    background-color: var(--color-gray);
+    transition: 0.3s;
+  }
 
+  .navbar a i,
+  .navbar a:focus i {
+    font-size: 12px;
+    line-height: 0;
+    margin-left: 5px;
+    color: var(--color-blue);
+    background-color: var(--color-gray);
+  }
+
+  .navbar a:hover,
+  .navbar .active,
+  .navbar .active:focus,
+  .navbar li:hover>a {
+    color: var(--color-blue);
+    background-color: var(--color-gray);
+  }
+}
+*/
 .header .logo img {
-  max-height: 120px;
+  max-height: 100px;
   margin-right: 6px;
+  
 }
 
 .header .logo h1 {
@@ -296,9 +375,9 @@ section {
     justify-content: space-between;
     padding: 15px 0 15px 30px;
     font-family: var(--font-default);
-    font-size: 15px;
-    font-weight: 500;
-    color: var(--color-secondary);
+    font-size: 20px;
+    font-weight: 300;
+    color: var(--color-primary);
     white-space: nowrap;
     transition: 0.3s;
   }
@@ -308,15 +387,17 @@ section {
     font-size: 12px;
     line-height: 0;
     margin-left: 5px;
+    color: var(--color-green);
   }
 
   .navbar a:hover,
-  .navbar .active,
-  .navbar .active:focus,
   .navbar li:hover>a {
-    color: var(--color-default)
+    color: var(--color-blue)
   }
-
+  .navbar .active,
+  .navbar .active:focus {
+    color: var(--color-green)
+  }
   .navbar .dropdown ul {
     display: block;
     position: absolute;
@@ -431,6 +512,19 @@ section {
     transition: 0.3s;
   }
 
+  .navbar.sticked  a:focus{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    font-family: var(--font-default);
+    font-size: 15px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.7);
+    white-space: nowrap;
+    transition: 0.3s;
+  }
+
   .navbar a i,
   .navbar a:focus i {
     font-size: 12px;
@@ -442,7 +536,7 @@ section {
   .navbar .active,
   .navbar .active:focus,
   .navbar li:hover>a {
-    color: #fff;
+    color: var(--color-green);
   }
 
   .navbar .dropdown ul,
@@ -501,8 +595,8 @@ section {
 --------------------------------------------------------------*/
 .hero {
   width: 100%;
-  min-height: 100vh;
-  background: url("../img/ld1.jpeg") top center;
+  min-height: 100;
+  background: url("../img/Outdoor-Kitchen.jpeg") top center;
   background-size: cover;
   position: relative;
   padding: 120px 0;
@@ -514,7 +608,7 @@ section {
     position: absolute;
     content: "";
     width: 40%;
-    background: var(--color-primary);
+    background: rgba(242, 242, 242, 0.85);
     top: 0;
     bottom: 0;
   }
@@ -523,18 +617,20 @@ section {
 .hero:before {
   position: absolute;
   content: "";
-  background: rgba(180, 208, 231, 0.8);
+  background: rgba(0, 0, 0, 0.7);
   inset: 0;
 }
 
 @media (max-width: 1034px) {
   .hero:before {
-    background: rgba(180, 208, 231, 0.7);
+    background: rgba(0, 0, 0, 0.80);
   }
 }
 
 .hero .container {
   z-index: 1;
+
+
 }
 
 @media (min-width: 1365px) {
@@ -546,7 +642,7 @@ section {
 .hero h2 {
   margin: 0;
   font-size: 28px;
-  font-weight: 700;
+  font-weight: 300;
   line-height: 1.2;
   color:var(--color-secondary);
   font-family: var(--font-secondary);
@@ -559,8 +655,16 @@ section {
   font-family: var(--font-default);
   border-left: 2px solid var(--color-primary);
   margin: 40px 0;
-}
+  background: rgba(42, 107, 107, 0.95);
 
+}
+.hero content {
+  color:var(--color-secondary);
+  padding-left: 20px;
+  font-size: 15px;
+  font-family: var(--font-default);
+  margin: 40px 0;
+}
 .hero .btn-get-started {
   font-family: var(--font-secondary);
   font-weight: 500;
@@ -712,7 +816,7 @@ section {
   font-weight: 700;
   font-size: 36px;
   font-family: var(--font-secondary);
-  color: var(--color-secondary);
+  color: var(--color-primary);
 }
 
 .about .content p {
@@ -850,7 +954,11 @@ section {
 .features {
   padding-bottom: 0;
 }
-
+.features h2 {
+  font-size: 30px;
+  font-weight: 700;
+  color: rgba(1, 19, 38, 0.6);
+}
 .features h3 {
   color: var(--color-secondary);
   font-size: 32px;
@@ -912,6 +1020,7 @@ section {
 .features .details p {
   margin-bottom: 20px;
   font-size: 15px;
+  color: var(--color-secondary)
 }
 
 .features .details .btn-get-started {
@@ -934,6 +1043,11 @@ section {
 /*--------------------------------------------------------------
 # Recent Blog Posts Section
 --------------------------------------------------------------*/
+.recent-posts h2 {
+  font-size: 30px;
+  font-weight: 700;
+  color: rgba(1, 19, 38, 0.6);
+}
 .recent-posts .post-box {
   transition: 0.3s;
   height: 100%;
