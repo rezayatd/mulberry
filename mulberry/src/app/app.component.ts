@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { AppRoutingModule } from './app-routing.module';
+
 
 
 @Component({
@@ -10,5 +12,7 @@ import { Component, Input } from '@angular/core';
 export class AppComponent {
  
   title = 'mulberry';
+   
+
 
 }

@@ -12,7 +12,7 @@ export class ServicesPageComponent implements OnInit {
   imgUrl : string = ''
   ngOnInit(): void {
     this.pageTitle="Services"
-    this.imgUrl = 'assets/img/Landscape1.jpeg'
+    this.imgUrl = '../../assets/img/banner1.png'
   }
 
 }

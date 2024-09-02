@@ -1,0 +1,108 @@
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+.header {
+    transition: all 0.5s;
+    z-index: 997;
+    padding: 24px 0;
+    opacity : 1.0;
+  }
+  
+  .header.sticked{
+    left: 0; ;
+    padding: 12px 0;
+    background: var(--color-lightgray);
+    opacity : 1.0;
+    .navbar a,
+    .navbar a:focus {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 0 15px 30px;
+      font-family: var(--font-default);
+      font-size: 20px;
+      font-weight: 300;
+      color:rgb(10, 10, 10);
+      white-space: nowrap;
+      background-color: var(--color-gray);
+      transition: 0.3s;
+    }
+  
+    .navbar a:hover,
+    .navbar li:hover>a {
+      color: var(--color-blue)
+    }
+    .navbar .active,
+    .navbar .active:focus {
+      color: var(--color-green)
+    }
+  
+    .navbar a i,
+    .navbar a:focus i {
+      font-size: 12px;
+      line-height: 0;
+      margin-left: 5px;
+      color: var(--color-green);
+      background-color: var(--color-gray);
+    }
+  
+   
+  }
+  
+  @media (max-width: 1200px) {
+    .header {
+      padding: 12px 0;
+    }
+  }
+  
+  /*
+  .header.sticked1 {
+    left: 0; ;
+    padding: 12px 0;
+    background-color: var(--color-gray);
+    .navbar a,
+    .navbar a:focus {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 0 15px 30px;
+      font-family: var(--font-default);
+      font-size: 20px;
+      font-weight: 300;
+      color:rgb(10, 10, 10);
+      white-space: nowrap;
+      background-color: var(--color-gray);
+      transition: 0.3s;
+    }
+  
+    .navbar a i,
+    .navbar a:focus i {
+      font-size: 12px;
+      line-height: 0;
+      margin-left: 5px;
+      color: var(--color-blue);
+      background-color: var(--color-gray);
+    }
+  
+    .navbar a:hover,
+    .navbar .active,
+    .navbar .active:focus,
+    .navbar li:hover>a {
+      color: var(--color-blue);
+      background-color: var(--color-gray);
+    }
+  }
+  */
+  .header .logo img {
+    max-height: 100px;
+    margin-right: 6px;
+    
+  }
+  
+  .header .logo h1 {
+    font-size: 30px;
+    font-weight: 700;
+    color: #fff;
+    font-family: var(--font-secondary);
+    margin: 0;
+  }
