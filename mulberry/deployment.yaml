@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mulberryld-app-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mulberryld
+  template:
+    metadata:
+      labels:
+        app: mulberryld
+    spec:
+      containers:
+      - name: mulberryld
+        image: northamerica-northeast2-docker.pkg.dev/mulberry-landscaping-design/mulberry-repo/mulberryld:latest
+        ports:
+        - containerPort: 80
+        resources:  # Resource requests and limits
+          requests:
+            memory: "512Mi"
+            cpu: "2000m"
+          limits:
+            memory: "1024Mi"
+            cpu: "2500m"
+      imagePullSecrets:
+      - name: gcr-json-key
