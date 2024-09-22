@@ -17,19 +17,20 @@ LIMIT_MEMORY="1024Mi"
 LIMIT_CPU="2500m"
 IMAGE_PULL_SECRET_NAME="gcr-json-key"
 
-echo "1 - Enable GCP services..."
+echo "1 - "Authenticate GCloud and Docker with GCR...""
+gcloud auth activate-service-account --key-file=$GOOGLE_APPLICATION_CREDENTIALS
+gcloud config set project $PROJECT_ID --quiet 
 gcloud services enable container.googleapis.com
-
-echo "Authenticate GCloud and Docker with GCR..."
-gcloud auth login
-gcloud config set project $PROJECT_ID
+gcloud container clusters get-credentials $CLUSTER_NAME --zone $REGION --project $PROJECT_ID
 gcloud auth configure-docker
 
-echo "2 - Build Docker image..."
-docker build -t $ARTIFACT_REGISTRY_SERVER/$PROJECT_ID/$REPOSITORY_NAME/$IMAGE_NAME:$TAG .
-
+echo "2 - Build  Docker image..."
+docker buildx create --use
+#docker buildx build --platform $ARTIFACT_REGISTRY_SERVER/$PROJECT_ID/$REPOSITORY_NAME/$IMAGE_NAME:$TAG . --push
+docker build -t $ARTIFACT_REGISTRY_SERVER/$PROJECT_ID/$REPOSITORY_NAME/$IMAGE_NAME:$TAG . --push
+#docker build -t $ARTIFACT_REGISTRY_SERVER/$PROJECT_ID/$REPOSITORY_NAME/$IMAGE_NAME:$TAG .
 echo "3 - Push the image to Google Artifact Registry..."
-docker push $ARTIFACT_REGISTRY_SERVER/$PROJECT_ID/$REPOSITORY_NAME/$IMAGE_NAME:$TAG
+#docker push $ARTIFACT_REGISTRY_SERVER/$PROJECT_ID/$REPOSITORY_NAME/$IMAGE_NAME:$TAG
 
 echo "4 - Get GKE credentials for your cluster..."
 gcloud container clusters get-credentials $CLUSTER_NAME --region $REGION
@@ -63,7 +64,7 @@ spec:
             memory: "1024Mi"
             cpu: "2500m"
       imagePullSecrets:
-      - name: $IMAGE_PULL_SECRET_NAME
+      - name: "gcr-json-key"
 EOF
 
 echo "6 - Expose the deployment using a LoadBalancer service..."
