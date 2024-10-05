@@ -2,7 +2,7 @@ import { Component, OnInit, Input, SimpleChanges} from '@angular/core';
 import { Router, NavigationStart} from '@angular/router';
 import { Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
-import { MenuItem, MenuItemsService } from 'src/app/services/menu-items/menu-items.service';
+import { MenuItem, MenuItemsService } from '@services/menu-items/menu-items.service';
 
 @Component({
   selector: 'app-header',
@@ -24,13 +24,19 @@ export class HeaderComponent implements OnInit {
   }
   
   ngOnInit(): void {  
+      let anyActiveMenu : Boolean = false;
       this.navStart.subscribe(navStart => {
       for (let item of this.menuItems) {
         if (item.routerLink == navStart.url){
           this.setMenuItemActive(item); 
           this.logoUrl = this.getlogoUrl(item)
+          anyActiveMenu=true; 
         }else{
           this.setMenuItemInactive(item); 
+        }
+        if (!anyActiveMenu) {
+          this.setMenuItemActive(this.menuItems[0]); 
+          this.logoUrl = this.menuItems[0].logoUrl;
         }
       }
     });
@@ -49,6 +55,7 @@ export class HeaderComponent implements OnInit {
     return mi;
   };
   private getlogoUrl(mi:MenuItem):string{
+    
     return mi.logoUrl
   }
 }

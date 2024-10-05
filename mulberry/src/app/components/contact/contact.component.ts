@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EmailService } from 'src/app/services/email/email.service';
+import { EmailService } from '@services/email/email.service';
 import { FormsModule } from '@angular/forms';
 
 @Component({

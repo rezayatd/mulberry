@@ -1,6 +1,6 @@
 # Stage 1: Build the Angular app
 # Use Node image for amd64 architecture
-FROM node:14 AS build
+FROM node:18 AS build
 
 # Set the working directory
 WORKDIR /app
@@ -12,7 +12,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install dependencies
-RUN npm install --omit=dev
+RUN npm install 
 
 # Copy the Angular app source code
 COPY . .

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from '@app/app-routing.module';
 
 
 

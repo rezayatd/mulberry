@@ -17,12 +17,13 @@ spec:
         image: northamerica-northeast2-docker.pkg.dev/mulberry-landscaping-design/mulberry-repo/mulberryld:latest
         ports:
         - containerPort: 80
-        resources:  # Resource requests and limits
-          requests:
-            memory: "512Mi"
-            cpu: "2000m"
-          limits:
-            memory: "1024Mi"
-            cpu: "2500m"
+        volumeMounts:
+        - name: tls-volume
+          mountPath: /etc/tls 
+          readOnly: true
+      volumes:
+      - name: tls-volume
+        secret:
+          secretName: my-tls-secret  
       imagePullSecrets:
-      - name: gcr-json-key
+      - name: "gcr-json-key"

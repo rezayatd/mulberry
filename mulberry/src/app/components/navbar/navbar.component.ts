@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
-import { MenuItem, MenuItemsService } from 'src/app/services/menu-items/menu-items.service';
+import { MenuItem, MenuItemsService } from '@services/menu-items/menu-items.service';
 
 
 @Component({

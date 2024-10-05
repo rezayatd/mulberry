@@ -11,12 +11,37 @@
     z-index: 3;
   }
   
+  /* For large screens (min-width: 1034px and above) */
   @media (min-width: 1034px) {
     .hero:after {
       position: absolute;
       content: "";
-      width: 40%;
-      background: rgba(242, 242, 242, 0.85);
+      width: 40%; 
+      background: rgba(242, 242, 242, 0.75);
+      top: 0;
+      bottom: 0;
+    }
+  }
+
+  /* For medium screens (min-width: 768px and below 1034px) */
+  @media (min-width: 768px) and (max-width: 1033px) {
+    .hero:after {
+      position: absolute;
+      content: "";
+      width: 70%; 
+      background: rgba(242, 242, 242, 0.75);
+      top: 0;
+      bottom: 0;
+    }
+  }
+
+  /* For small screens (below 768px) */
+  @media (max-width: 767px) {
+    .hero:after {
+      position: absolute;
+      content: "";
+      width: 100%; 
+      background: rgba(242, 242, 242, 0.75);
       top: 0;
       bottom: 0;
     }
@@ -28,13 +53,7 @@
     background: rgba(0, 0, 0, 0.5);
     inset: 0;
   }
-  
-  @media (max-width: 1034px) {
-    .hero:before {
-      background: rgba(0, 0, 0, 0.50);
-    }
-  }
-  
+      
   .hero .container {
     z-index: 1;
   

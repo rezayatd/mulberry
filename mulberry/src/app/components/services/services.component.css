@@ -32,6 +32,11 @@
     margin-right: 20px;
     color: #38618e;
   }
+
+  .services-list .service-item .ld-icon img{
+    margin-right: 20px;
+    max-height: 150px;
+  }
   
   .services-list .service-item .title {
     font-weight: 700;

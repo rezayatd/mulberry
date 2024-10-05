@@ -1,5 +1,5 @@
 import { Component, OnInit, Input} from '@angular/core';
-import { MenuItem } from 'src/app/services/menu-items/menu-items.service';
+import { MenuItem } from '@services/menu-items/menu-items.service';
 
 @Component({
   selector: 'app-navbar-item',
