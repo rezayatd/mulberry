@@ -17,13 +17,5 @@ spec:
         image: northamerica-northeast2-docker.pkg.dev/mulberry-landscaping-design/mulberry-repo/mulberryld:latest
         ports:
         - containerPort: 80
-        volumeMounts:
-        - name: tls-volume
-          mountPath: /etc/tls 
-          readOnly: true
-      volumes:
-      - name: tls-volume
-        secret:
-          secretName: my-tls-secret  
       imagePullSecrets:
       - name: "gcr-json-key"
