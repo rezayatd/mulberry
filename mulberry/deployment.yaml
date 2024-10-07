@@ -2,18 +2,19 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mulberryld-app-deployment
+  namespace: mulberryld
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mulberryld
+      app: mulberryld-app
   template:
     metadata:
       labels:
-        app: mulberryld
+        app: mulberryld-app
     spec:
       containers:
-      - name: mulberryld
+      - name: mulberryld-app-container
         image: northamerica-northeast2-docker.pkg.dev/mulberry-landscaping-design/mulberry-repo/mulberryld:latest
         ports:
         - containerPort: 80

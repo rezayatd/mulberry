@@ -1,0 +1,8 @@
+apiVersion: networking.gke.io/v1
+kind: ManagedCertificate
+metadata:
+  name: mulberryld-ssl-certificate
+  namespace: mulberryld
+spec:
+  domains:
+    - mulberryld.com
